@@ -1,2 +1,18 @@
-# plusultra-backstage-plugins
-Backstage plugins collections
+# plusultra-dotnet-backstage-plugins
+
+Plugins collection to use with dotnet
+
+## Custom actions
+
+- dotnet:new
+
+# [Backstage](https://backstage.io)
+
+This is your newly scaffolded Backstage App, Good Luck!
+
+To start the app, run:
+
+```sh
+yarn install
+yarn dev
+```
