@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "types": "src/index.ts",
   "private": true,
@@ -29,7 +29,7 @@
     "@backstage/plugin-techdocs-backend": "^0.12.2",
     "@gitbeaker/node": "^34.6.0",
     "@octokit/rest": "^18.5.3",
-    "app": "^0.1.1",
+    "app": "^1.0.0",
     "dockerode": "^3.3.1",
     "express": "^4.17.1",
     "express-promise-router": "^4.1.0",
