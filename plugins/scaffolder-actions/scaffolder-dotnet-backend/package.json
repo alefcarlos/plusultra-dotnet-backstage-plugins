@@ -12,7 +12,7 @@
   "repository": {
     "type": "git",
     "url": "github:alefcarlos/plusultra-dotnet-backstage-plugins",
-    "directory": "plugins/scaffolder-dotnet-backend"
+    "directory": "plugins/scaffolder-actions/scaffolder-dotnet-backend"
   },
   "scripts": {
     "start": "backstage-cli backend:dev",
