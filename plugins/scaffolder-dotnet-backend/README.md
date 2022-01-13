@@ -2,7 +2,9 @@
 
 Welcome to the `dotnet` actions for the `scaffolder-backend`.
 
-This contains one action: `dotnet:new`.
+This contains 
+- `dotnet:new`
+- `dotnet:build`
 
 The `dotnet:new` action allows the task to create [dotnet templates](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
 
@@ -19,7 +21,7 @@ You need to configure the action in your backend:
 
 ```
 cd packages/backend
-yarn add TODO
+yarn add @plusultra/plugin-scaffolder-dotnet-backend
 ```
 
 Configure the action:
@@ -28,7 +30,7 @@ Configure the action:
 ```typescript
 // packages/backend/src/plugins/scaffolder.ts
 
-import { dotnetNewAction } from '@plusultra/plugin-scaffolder-dotnet-backend'
+import { dotnetNewAction, dotnetBuildAction } from '@plusultra/plugin-scaffolder-dotnet-backend'
 
 const builtInActions = createBuiltinActions({
 containerRunner,
@@ -38,7 +40,7 @@ catalogClient,
 reader,
 });
 
-const actions = [...builtInActions, dotnetNewAction()];
+const actions = [...builtInActions, dotnetNewAction(), dotnetBuildAction()];
 
 return await createRouter({
   containerRunner,
