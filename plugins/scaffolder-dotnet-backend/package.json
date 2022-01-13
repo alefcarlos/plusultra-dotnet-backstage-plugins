@@ -9,6 +9,11 @@
     "main": "dist/index.cjs.js",
     "types": "dist/index.d.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "github:alefcarlos/plusultra-dotnet-backstage-plugins",
+    "directory": "plugins/scaffolder-dotnet-backend"
+  },
   "scripts": {
     "start": "backstage-cli backend:dev",
     "build": "backstage-cli backend:build",
