@@ -49,7 +49,7 @@ export const dotnetNewAction = () => {
         logStream: ctx.logStream
       });
 
-      ctx.logger.info(`Template result  written to ${outputDir}`);
+      ctx.logger.info(`Template result written to ${outputDir}`);
     },
   });
 };
