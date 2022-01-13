@@ -83,7 +83,6 @@ jobs:
       shell: bash
       run: |
         echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_AUTH_TOKEN}}" >> .npmrc
-        echo "_auth = ${{ secrets.NPM_CONFIG__AUTH }}" >> .npmrc
         echo "always-auth = true" >> .npmrc
     # Publishes current version of packages that are not already present in the registry.
     - name: Run publish
