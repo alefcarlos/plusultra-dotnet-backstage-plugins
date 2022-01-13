@@ -18,3 +18,7 @@ spec:
         args:
           - -n
           - MyWebApi
+
+    - id: build
+      name: Build app
+      action: dotnet:build
