@@ -5,7 +5,7 @@ import Docker from 'dockerode';
 import { Router } from 'express';
 import type { PluginEnvironment } from '../types';
 import { ScmIntegrations } from '@backstage/integration';
-import { dotnetNewAction, dotnetBuildAction } from '@plusultra/plugin-scaffolder-dotnet-backend'
+// import { dotnetNewAction, dotnetBuildAction } from '@plusultra/-scaffolder-dotnet-backend'
 
 export default async function createPlugin({
   logger,
@@ -28,7 +28,8 @@ export default async function createPlugin({
     reader,
   });
 
-  const actions = [...builtInActions, dotnetNewAction(), dotnetBuildAction()];
+  // const actions = [...builtInActions, dotnetNewAction(), dotnetBuildAction()];
+  const actions = [...builtInActions];
 
   return await createRouter({
     containerRunner,
