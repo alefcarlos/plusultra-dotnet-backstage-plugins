@@ -77,7 +77,7 @@ jobs:
       run: yarn tsc
 
     - name: build packages
-      run: yarn build
+      run: yarn lerna run build --no-private
 
     - name: 'Login to npmjs npm repo .npmrc'
       shell: bash
