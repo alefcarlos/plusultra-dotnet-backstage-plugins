@@ -26,6 +26,7 @@
   "dependencies": {
     "@backstage/backend-common": "^0.10.2",
     "@backstage/config": "^0.1.8",
+    "@backstage/plugin-scaffolder-backend": "^0.15.19",
     "winston": "^3.2.1",
     "cross-fetch": "^3.0.6"
   },
