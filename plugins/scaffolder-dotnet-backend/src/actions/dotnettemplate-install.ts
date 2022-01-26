@@ -1,6 +1,6 @@
 import { createTemplateAction, runCommand } from '@backstage/plugin-scaffolder-backend';
 
-export const dotnetNewAction = () => {
+export const dotnetNewInstallAction = () => {
   return createTemplateAction<{ package: string, args: string[], targetPath?: string }>({
     id: 'dotnet:new:install',
     description: 'Install a template package using dotnet new command',

@@ -4,6 +4,7 @@ Welcome to the `dotnet` actions for the `scaffolder-backend`.
 
 This contains 
 - `dotnet:new`
+- `dotnet:new:install`
 - `dotnet:build`
 
 The `dotnet:new` action allows the task to create [dotnet templates](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new).
