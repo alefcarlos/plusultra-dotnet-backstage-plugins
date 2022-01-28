@@ -32,6 +32,9 @@ Configure the action:
 // packages/backend/src/plugins/scaffolder.ts
 
 import { dotnetNewAction, dotnetBuildAction } from '@plusultra/plugin-scaffolder-dotnet-backend'
+import { ScmIntegrations } from '@backstage/integration';
+
+const integrations = ScmIntegrations.fromConfig(config);
 
 const builtInActions = createBuiltinActions({
 containerRunner,
