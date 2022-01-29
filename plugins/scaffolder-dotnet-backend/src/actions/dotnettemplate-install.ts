@@ -6,7 +6,7 @@ export const dotnetInstallTemplateAction = () => {
     description: 'Install a template package using dotnet new command',
     schema: {
       input: {
-        required: ['template'],
+        required: ['package'],
         type: 'object',
         properties: {
           package: {
