@@ -4,9 +4,9 @@ Plugins collection to use with dotnet
 
 ## Custom actions
 
-- dotnet:new
-- dotnet:new:install
-- dotnet:build
+- `dotnet:new`
+- `dotnet:template:install`
+- `dotnet:build`
 
 # [Backstage](https://backstage.io)
 

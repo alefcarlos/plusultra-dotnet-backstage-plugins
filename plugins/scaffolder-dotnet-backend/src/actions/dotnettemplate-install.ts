@@ -26,7 +26,7 @@ export const dotnetInstallTemplateAction = () => {
     async handler(ctx) {
       await runCommand({
         command: 'dotnet',
-        args: ['--install', ctx.input.package, ...ctx.input.args],
+        args: ['new', '--install', ctx.input.package, ...ctx.input.args],
         logStream: ctx.logStream
       });
 
