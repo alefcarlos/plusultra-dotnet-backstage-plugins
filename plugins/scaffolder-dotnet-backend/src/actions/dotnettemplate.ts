@@ -1,4 +1,4 @@
-import { createTemplateAction, runCommand } from '@backstage/plugin-scaffolder-backend';
+import { createTemplateAction, executeShellCommand } from '@backstage/plugin-scaffolder-backend';
 import { resolveSafeChildPath } from '@backstage/backend-common';
 
 export const dotnetNewAction = () => {
@@ -40,7 +40,7 @@ export const dotnetNewAction = () => {
 
             const args = ctx.input.args.map(x => stringify(x));
 
-            await runCommand({
+            await executeShellCommand({
                 command: 'dotnet',
                 args: ['new', ctx.input.template, ...args],
                 options: {
