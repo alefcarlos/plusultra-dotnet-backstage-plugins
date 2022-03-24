@@ -1,4 +1,4 @@
-import { createTemplateAction, runCommand } from '@backstage/plugin-scaffolder-backend';
+import { createTemplateAction, executeShellCommand } from '@backstage/plugin-scaffolder-backend';
 
 export const dotnetInstallTemplateAction = () => {
   return createTemplateAction<{ package: string, args: string[], targetPath?: string }>({
@@ -24,7 +24,7 @@ export const dotnetInstallTemplateAction = () => {
       },
     },
     async handler(ctx) {
-      await runCommand({
+      await executeShellCommand({
         command: 'dotnet',
         args: ['new', '--install', ctx.input.package, ...ctx.input.args],
         logStream: ctx.logStream

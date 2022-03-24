@@ -1,4 +1,4 @@
-import { createTemplateAction, runCommand } from '@backstage/plugin-scaffolder-backend';
+import { createTemplateAction, executeShellCommand } from '@backstage/plugin-scaffolder-backend';
 
 export const dotnetBuildAction = () => {
   return createTemplateAction<{ args?: string[] }>({
@@ -25,7 +25,7 @@ export const dotnetBuildAction = () => {
         args.push(...ctx.input.args);
       }
 
-      await runCommand({
+      await executeShellCommand({
         command: 'dotnet',
         args: args,
         options: {
