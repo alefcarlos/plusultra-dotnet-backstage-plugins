@@ -44,7 +44,6 @@ function makeCreateEnv(config: Config) {
     tokenManager,
   });
 
-
   root.info(`Created UrlReader ${reader}`);
 
   return (plugin: string): PluginEnvironment => {

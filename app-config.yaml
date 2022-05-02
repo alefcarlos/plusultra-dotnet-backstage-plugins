@@ -7,7 +7,8 @@ organization:
 
 backend:
   # Used for enabling authentication, secret is shared by all backend plugins
-  # See backend-to-backend-auth.md in the docs for information on the format
+  # See https://backstage.io/docs/tutorials/backend-to-backend-auth for
+  # information on the format
   # auth:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
@@ -23,7 +24,7 @@ backend:
     methods: [GET, POST, PUT, DELETE]
     credentials: true
   database:
-    client: sqlite3
+    client: better-sqlite3
     connection: ':memory:'
   cache:
     store: memory
@@ -62,50 +63,42 @@ scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
+  import:
+    entityFilename: catalog-info.yaml
+    pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Group, User, Resource, Location]
+    - allow: [Component, System, API, Resource, Location]
   locations:
+    # Backstage example components
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
 
-    # Testing purposes
-    - type: file
-      target: ../entities/examples.yaml
+    # Backstage example systems
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-systems.yaml
+
+    # Backstage example APIs
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-apis.yaml
+
+    # Backstage example resources
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-resources.yaml
+
+    # Backstage example organization groups
+    - type: url
+      target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme/org.yaml
+
+    # Backstage example templates
+    - type: url
+      target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/react-ssr-template/template.yaml
       rules:
         - allow: [Template]
-
-    # # Backstage example components
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-components.yaml
-
-    # # Backstage example systems
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-systems.yaml
-
-    # # Backstage example APIs
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-apis.yaml
-
-    # # Backstage example resources
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-resources.yaml
-
-    # # Backstage example organization groups
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/acme/org.yaml
-
-    # # Backstage example templates
-    # - type: url
-    #   target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/react-ssr-template/template.yaml
-    #   rules:
-    #     - allow: [Template]
-    # - type: url
-    #   target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/springboot-grpc-template/template.yaml
-    #   rules:
-    #     - allow: [Template]
-    # - type: url
-    #   target: https://github.com/spotify/cookiecutter-golang/blob/master/template.yaml
-    #   rules:
-    #     - allow: [Template]
-    # - type: url
-    #   target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/docs-template/template.yaml
-    #   rules:
-    #     - allow: [Template]
+    - type: url
+      target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/springboot-grpc-template/template.yaml
+      rules:
+        - allow: [Template]
+    - type: url
+      target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/docs-template/template.yaml
+      rules:
+        - allow: [Template]

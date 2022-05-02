@@ -1,13 +1,3 @@
-# plusultra-dotnet-backstage-plugins
-
-Plugins collection to use with dotnet
-
-## Custom actions
-
-- `dotnet:new`
-- `dotnet:template:install`
-- `dotnet:build`
-
 # [Backstage](https://backstage.io)
 
 This is your newly scaffolded Backstage App, Good Luck!
