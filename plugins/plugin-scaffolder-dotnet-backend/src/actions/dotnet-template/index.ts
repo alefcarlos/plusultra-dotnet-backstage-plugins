@@ -1,0 +1,1 @@
+export { dotnetNewAction } from './dotnettemplate';
