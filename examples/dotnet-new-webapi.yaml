@@ -1,0 +1,25 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+kind: Template
+metadata:
+  name: dotnet-web-api
+  title: Web API Example
+  description: A simple example how to create a new dotnet project. 
+spec:
+  owner: guest
+  type: service
+
+  # These steps are executed in the scaffolder backend, using data that we gathered
+  # via the parameters above.
+  steps:
+
+    - id: template
+      name: Dotnet new webapi
+      action: dotnet:new
+      input:
+        template: webapi
+        args:
+          - -n
+          - MyWebApi
+    
+ 
