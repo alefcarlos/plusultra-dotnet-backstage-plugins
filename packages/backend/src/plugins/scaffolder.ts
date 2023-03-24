@@ -4,7 +4,7 @@ import { Router } from 'express';
 import type { PluginEnvironment } from '../types';
 
 
-import { dotnetNewAction, dotnetBuildAction, dotnetInstallTemplateAction } from '../../../../plugins/plugin-scaffolder-dotnet-backend'
+import { dotnetNewAction, dotnetBuildAction, dotnetInstallTemplateAction , dotnetNugetAddAction} from '../../../../plugins/plugin-scaffolder-dotnet-backend'
 import { ScmIntegrations } from '@backstage/integration';
 
 
@@ -26,7 +26,13 @@ const builtInActions = createBuiltinActions({
   reader: env.reader,
 });
 
-const actions = [...builtInActions, dotnetNewAction(), dotnetBuildAction(), dotnetInstallTemplateAction()];
+const actions = [
+  dotnetNewAction(), 
+  dotnetBuildAction(), 
+  dotnetInstallTemplateAction(), 
+  dotnetNugetAddAction({integrations}),
+  ...builtInActions, 
+];
 
 
 
