@@ -49,10 +49,15 @@ export const dotnetNugetAddAction = (options: {
             }
       
             const token = integrationConfig.config.token!;
-
+            // This allows adding of nuget 
             var arg = ['nuget', 'add', 'source', ctx.input.packageSource, '-u', 'backstage', '-p', token, '--store-password-in-clear-text']
             
             const process = spawn('dotnet', arg);
+
+            ctx.logger.info(`Adding ${ctx.input.packageSource} to nuget sources`);
+
+            ctx.logger.info(`Output for information purposes only`);
+
 
             process.stdout.on('data', stream => {
                 ctx.logStream.write(stream);
@@ -70,7 +75,7 @@ export const dotnetNugetAddAction = (options: {
             });
 
 
-            ctx.logger.info(`lol`);
+           
         },
     });
 };
