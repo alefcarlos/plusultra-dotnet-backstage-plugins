@@ -1,0 +1,43 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-template
+kind: Template
+metadata:
+  name: private-github-feedexample
+  title: Private Feed Example
+  description: Create a new project from a private ghpackges feed
+spec:
+  owner: guest
+  type: service
+  
+  steps:
+
+    - id: addSource
+      name: add source
+      action: dotnet:nuget:add
+      input:
+        packageSource: "https://nuget.pkg.github.com/NAMESPACE/index.json"
+
+    - id: installtemplate
+      name: install template
+      action: dotnet:template:install
+      input:
+        package: <PrivatePackageTemplate>
+        args: 
+          - --force
+
+    - id: createnewprojectm
+      name: Dotnet new installedtemplate
+      action: dotnet:new
+      input:
+        template: installedtemplate
+        args:
+          - -n
+          - MyProjectName
+
+     
+
+
+
+ 
+    
+ 

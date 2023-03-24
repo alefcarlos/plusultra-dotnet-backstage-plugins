@@ -34,7 +34,7 @@ export const dotnetNugetAddAction = (options: {
             },
         },
         async handler(ctx) {
-            
+            //TODO: switch on incoming host to select integration
             const host = "github.com";
             const integrationConfig = integrations.github.byHost(host);
       
@@ -58,10 +58,6 @@ export const dotnetNugetAddAction = (options: {
                 ctx.logStream.write(stream);
             });
         
-            process.stderr.on('data', stream => {
-                ctx.logStream.write(stream);
-            });
-        
             process.on('error', error => {
                 ctx.logStream.write(error);
             });
@@ -73,14 +69,8 @@ export const dotnetNugetAddAction = (options: {
              
             });
 
-        
 
-         
-            // ctx.logger.info(
-            //     exit,
-            // );
-
-            // ctx.logger.info(`Template result written to ${outputDir}`);
+            ctx.logger.info(`lol`);
         },
     });
 };

@@ -77,6 +77,9 @@ catalog:
     - type: file
       target: ../../examples/dotnet-new-webapi.yaml
 
+    - type: file
+      target: ../../examples/dotnet-install-feed-nuget.yaml
+      
     # Backstage example systems
     - type: url
       target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all-systems.yaml
