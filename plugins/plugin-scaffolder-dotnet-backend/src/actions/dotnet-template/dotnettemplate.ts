@@ -1,6 +1,7 @@
-import { createTemplateAction, executeShellCommand } from '@backstage/plugin-scaffolder-backend';
+import { executeShellCommand } from '@backstage/plugin-scaffolder-backend';
 import { resolveSafeChildPath } from '@backstage/backend-common';
 
+import { createTemplateAction } from '@backstage/plugin-scaffolder-node';
 export const dotnetNewAction = () => {
     return createTemplateAction<{ template: string, args: any[], targetPath?: string }>({
         id: 'dotnet:new',
