@@ -16,12 +16,12 @@
     "build-image": "docker build ../.. -f Dockerfile --tag backstage"
   },
   "dependencies": {
-    "app": "link:../app",
     "@backstage/backend-common": "^0.18.3",
     "@backstage/backend-tasks": "^0.5.0",
-    "@backstage/catalog-model": "^1.0.1",
     "@backstage/catalog-client": "^1.0.1",
+    "@backstage/catalog-model": "^1.0.1",
     "@backstage/config": "^1.0.0",
+    "@backstage/integration": "^1.4.3",
     "@backstage/plugin-app-backend": "^0.3.31",
     "@backstage/plugin-auth-backend": "^0.18.1",
     "@backstage/plugin-catalog-backend": "^1.1.0",
@@ -32,11 +32,12 @@
     "@backstage/plugin-search-backend": "^1.2.4",
     "@backstage/plugin-search-backend-node": "^1.1.4",
     "@backstage/plugin-techdocs-backend": "^1.1.0",
+    "app": "link:../app",
+    "better-sqlite3": "^7.5.0",
     "dockerode": "^3.3.1",
     "express": "^4.17.1",
     "express-promise-router": "^4.1.0",
     "luxon": "^2.0.2",
-    "better-sqlite3": "^7.5.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {
