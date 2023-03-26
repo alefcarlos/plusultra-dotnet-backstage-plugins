@@ -1,10 +1,6 @@
-import { executeShellCommand } from '@backstage/plugin-scaffolder-backend';
-import { resolveSafeChildPath } from '@backstage/backend-common';
 import { InputError } from "@backstage/errors";
-
-import { Config } from "@backstage/config";
 import { ScmIntegrationRegistry } from "@backstage/integration";
-import { spawn, SpawnOptionsWithoutStdio } from 'child_process';
+import { spawn } from 'child_process';
 
 import { createTemplateAction } from '@backstage/plugin-scaffolder-node';
 
@@ -34,7 +30,7 @@ export const dotnetNugetAddAction = (options: {
             },
         },
         async handler(ctx) {
-            //TODO: switch on incoming host to select integration
+            // TODO: switch on incoming host to select integration
             const host = "github.com";
             const integrationConfig = integrations.github.byHost(host);
       
@@ -50,7 +46,7 @@ export const dotnetNugetAddAction = (options: {
       
             const token = integrationConfig.config.token!;
             // This allows adding of nuget 
-            var arg = ['nuget', 'add', 'source', ctx.input.packageSource, '-u', 'backstage', '-p', token, '--store-password-in-clear-text']
+            const arg = ['nuget', 'add', 'source', ctx.input.packageSource, '-u', 'backstage', '-p', token, '--store-password-in-clear-text']
             
             const process = spawn('dotnet', arg);
 
@@ -69,9 +65,8 @@ export const dotnetNugetAddAction = (options: {
         
             process.on('close', code => {
               if (code !== 0) {
-                ctx.logStream.write(code.toString());
+                ctx.logStream.write(code?.toString());
               }
-             
             });
 
 
@@ -79,14 +74,3 @@ export const dotnetNugetAddAction = (options: {
         },
     });
 };
-
-function stringify(value: any) {
-    switch (typeof value) {
-        case 'string': return value;
-        case 'object': return JSON.stringify(value);
-        default: return String(value);
-    }
-};
-
-
- 

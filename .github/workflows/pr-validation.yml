@@ -1,0 +1,31 @@
+name: PR
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    strategy:
+     matrix:
+       node-version: [16.x]
+
+    
+    env:
+      CI: true
+      NODE_OPTIONS: --max-old-space-size=4096
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@main
+    - name: Set up Node.js
+      uses: actions/setup-node@main
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn install --frozen-lockfile
+    - name: build type declarations
+      run: yarn tsc
